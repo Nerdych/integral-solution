@@ -64,12 +64,13 @@ namespace IntegralSolution
             ICalculator calculator = GetCalculator();
             List<(double, int)> time = new List<(double, int)>();
 
-            double result = 0.0;
+            double result = calculator.Calculate(a, b, n, x => 11 * x - Math.Log(11 * x) - 2);
+
             for (int i = 0; i < n; i += 1000)
             {
                 DateTime timeStart = DateTime.Now;
 
-                result = calculator.Calculate(a, b, i, x => 11 * x - Math.Log(11 * x) - 2);
+                calculator.Calculate(a, b, i, x => 11 * x - Math.Log(11 * x) - 2);
 
                 DateTime timeStop = DateTime.Now;
                 time.Add(((timeStop - timeStart).TotalMilliseconds, i));
