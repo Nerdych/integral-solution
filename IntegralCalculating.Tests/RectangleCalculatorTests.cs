@@ -40,7 +40,7 @@ namespace IntegralCalculating.Tests
             double actual = rectangleCalculator.Calculate(a, b, n, f);
 
             // Assert
-            Assert.AreEqual(expected, actual, 0.0001);
+            Assert.AreEqual(expected, actual, 0);
         }
 
         [TestMethod]
