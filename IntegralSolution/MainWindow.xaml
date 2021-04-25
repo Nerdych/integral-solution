@@ -46,6 +46,9 @@
             <ComboBoxItem>
                 Метод трапеций
             </ComboBoxItem>
+            <ComboBoxItem>
+                Метод параболы
+            </ComboBoxItem>
         </ComboBox>
         <oxy:Plot x:Name="graph" Title="{Binding Title}" Grid.Row="8" Grid.ColumnSpan="3" Grid.Column="0" Grid.RowSpan="2" Height="400">
             <oxy:Plot.Series>

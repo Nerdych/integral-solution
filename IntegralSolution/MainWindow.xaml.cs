@@ -86,11 +86,13 @@ namespace IntegralSolution
             switch (cbmMethod.SelectedIndex)
             {
                 case 0:
-                    return new RectangleCalculator();
+                    return new RectangleCalculator();break;
                 case 1:
-                    return new TrapCalculator();
+                    return new TrapCalculator();break;
+                case 2:
+                    return new ParabolaCalculator();break;
                 default:
-                    return new RectangleCalculator();
+                    return new RectangleCalculator();break;
             }
         }
 
