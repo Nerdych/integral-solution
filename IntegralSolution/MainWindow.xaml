@@ -39,6 +39,9 @@
         <TextBox x:Name ="tbResult" Grid.Row="7" Margin="5"
                  Grid.Column="0" Grid.ColumnSpan="2" Height="30" IsReadOnly="True" TextWrapping="Wrap" Background="LightCyan">
         </TextBox>
+        <TextBox x:Name ="tbTime" Grid.Row="7" Margin="5"
+                 Grid.Column="2"  Height="30" IsReadOnly="True" TextWrapping="Wrap" Background="LightCyan">
+        </TextBox>
         <ComboBox Margin="5" x:Name="cbmMethod" Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="0" Height="30">
             <ComboBoxItem IsSelected="True">
                 Метод прямоугольников
@@ -47,6 +50,17 @@
                 Метод трапеций
             </ComboBoxItem>
         </ComboBox>
+        
+        <ComboBox Margin="5" x:Name="methodCalculate" Grid.Row="0" Grid.Column="2" Height="30">
+            <ComboBoxItem IsSelected="True">
+                Считать последовательно
+             
+            </ComboBoxItem>
+            <ComboBoxItem>
+                Считать параллельно
+            </ComboBoxItem>
+        </ComboBox>
+        
         <oxy:Plot x:Name="graph" Title="{Binding Title}" Grid.Row="8" Grid.ColumnSpan="3" Grid.Column="0" Grid.RowSpan="2" Height="400">
             <oxy:Plot.Series>
                 <oxy:LineSeries ItemsSource="{Binding Points}"/>

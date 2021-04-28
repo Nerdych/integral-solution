@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,12 +9,9 @@ namespace CalculateLibrary
 {
     public class TrapCalculator : ICalculator
     {
-        public double Calculate(double a, double b, long n, Func<double, double> f)
+        public double CalculatePos(double a, double b, long n, Func<double, double> f)
         {
-            if (n <= 0)
-            {
-                throw new ArgumentException("аргумент n не должен быть меньше 0");
-            }
+            if (n < 0) throw new ArgumentException("аргумент n не должен быть меньше 0");
 
             double h = (b - a) / n;
          
@@ -26,6 +24,18 @@ namespace CalculateLibrary
             sum += (f(a) + f(b))/2;
 
             return sum * h;
+        }
+
+        public double CalculateParallel(double a, double b, long n, Func<double, double> f)
+        {
+            if (n < 0) throw new ArgumentException("аргумент n не должен быть меньше 0");
+
+            double h = (b - a) / n;
+
+            var tmp = new double[n];
+            Parallel.For(1, n, (i) => { tmp[i] = (f(a + h * i)); });
+
+            return (tmp.Sum() + (f(a) + f(b)) / 2) * h;
         }
     }
 }
